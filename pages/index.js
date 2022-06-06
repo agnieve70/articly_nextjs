@@ -1,9 +1,23 @@
-import Head from 'next/head';  
+import React from "react";
+import ArticleGrid from "../components/articles/article-grid";
+import { getAllArticles } from "../helpers/api-utils";
 
-function FeaturedPosts() {
+function HomePage(props) {
   return (
-      <h1>Featured Posts</h1>
-  )
+    <div className="container">
+      <ArticleGrid items={props.articles} />
+    </div>
+  );
 }
 
-export default FeaturedPosts;
+export async function getServerSideProps(context) {
+  const articles = await getAllArticles();
+
+  return {
+    props: {
+      articles: articles.data,
+    },
+  };
+}
+
+export default HomePage;

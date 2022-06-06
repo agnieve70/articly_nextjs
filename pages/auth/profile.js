@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Head from "next/head";
 import { getSession } from "next-auth/client";
 import ProfileComp from "../../components/auth/ProfileComp";
 import FacebookGraph from "../../components/auth/FacebookGraph";
@@ -7,11 +8,17 @@ import { getCovidDataApi, getFaceBookApi, getMyArticleApi } from "../../helpers/
 
 function Profile(props) {
   return (
-    <div className="my-5">
-      <CovidChart covid={props.covid} last_update={props.covid_last_update} />
-      <FacebookGraph items={props.posts} />
-      <ProfileComp article={props.article} />
-    </div>
+    <Fragment>
+      <Head>
+        <title>Articly</title>
+        <meta name="description" content={"Write your own article and share it with everyone"} />
+      </Head>
+      <div className="my-5">
+        <CovidChart covid={props.covid} last_update={props.covid_last_update} />
+        <FacebookGraph items={props.posts} />
+        <ProfileComp article={props.article} />
+      </div>
+    </Fragment>
   );
 }
 

@@ -46,7 +46,6 @@ export async function getServerSideProps(context) {
     }
   );
   const result = await response.json();
-  console.log(result);
 
   let status = false;
 

@@ -3,7 +3,6 @@ import React from 'react';
 import Article from './article';
 
 function ArticleGrid(props) {
-    console.log(props.items);
   return (
     <div className="row justify-content-center mt-3">
       {props.items.map((item) => (

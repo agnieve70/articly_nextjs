@@ -24,10 +24,10 @@ module.exports = (phase, { defaultConfig }) => {
       mongodb_password: "JaOUg9KbzOqjmd1l",
       mongodb_clustername: "cluster0",
       mongodb_database: "posty-prod",
-      NEXTAUTH_URL: "https://example.com",
+      NEXTAUTH_URL: "https://articly-nextjs.vercel.app",
       nodemailer_username: "agnieve70@gmail.com",
       nodemailer_password: "gpvbmheneyemovkc",
-      base_url: "https://example.com",
+      base_url: "https://articly-nextjs.vercel.app",
     },
   };
 };

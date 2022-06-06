@@ -1,9 +1,19 @@
-import React from "react";
+import React, {Fragment} from "react";
 import LoginForm from "../../components/auth/LoginForm";
 import { getSession } from "next-auth/client";
+import Head from "next/head";
 
 function Auth() {
-  return <LoginForm />;
+  
+  return (
+    <Fragment>
+      <Head>
+        <title>Articly</title>
+        <meta name="description" content="Write Articles and Share it with everyone" />
+      </Head>
+      <LoginForm />
+    </Fragment>
+  );;
 }
 
 export async function getServerSideProps(context) {

@@ -12,7 +12,7 @@ function MainNavigation() {
       id="main-nav"
     >
       <div className="container-fluid">
-        <Link href="/guestview">
+        <Link href="/">
           <a className="navbar-brand">
             <Image src={'/banner.png'} width={150} height={70} />
           </a>
@@ -28,7 +28,7 @@ function MainNavigation() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link href="/guestview">
+                <Link href="/">
                   <a aria-current="page" className="nav-link fs-5">
                     Articles
                   </a>

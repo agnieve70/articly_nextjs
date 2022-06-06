@@ -37,9 +37,7 @@ async function handler(req, res) {
     transporter.verify(function (error, success) {
       if (error) {
         res.status(500).json({ message: "There was an error sending email" });
-      } else {
-        console.log("Server is ready to take our messages");
-      }
+      } 
     });
 
     const hashedPassword = await hashPassword(password);

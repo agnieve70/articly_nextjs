@@ -3,7 +3,6 @@ import { connectDatabase } from "../../../helpers/db-util";
 async function handler(req, res) {
   if (req.method === "PATCH") {
     const { code } = req.body;
-    console.log(code);
 
     const client = await connectDatabase();
 
