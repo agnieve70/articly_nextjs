@@ -3,11 +3,11 @@ import React from 'react'
 function Input(props) {
   return (
     <div className="form-group mb-3">
-      <label htmlFor={props.labelId}>{props.label}</label>
+      <label htmlFor={props.labelid}>{props.label}</label>
       <input
-        id={props.labelId}
+        id={props.labelid}
         type={props.type}
-        ref={props.inputRef}
+        ref={props.inputref}
         className="form-control"
         {...props}
       />

@@ -1,23 +1,22 @@
 import React from "react";
-import ArticleGrid from "../components/articles/article-grid";
+import MapContent from "../components/map";
 import { getAllArticles } from "../helpers/api-utils";
 
 function HomePage(props) {
   return (
     <div className="container">
-      <ArticleGrid items={props.articles} />
+      <MapContent />
     </div>
   );
 }
 
-export async function getServerSideProps(context) {
-  const articles = await getAllArticles();
+// export async function getServerSideProps(context) {
+//   const articles = await getAllArticles();
 
-  return {
-    props: {
-      articles: articles.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//     },
+//   };
+// }
 
 export default HomePage;

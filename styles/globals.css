@@ -10,6 +10,18 @@
   margin: auto;
 }
 
+#custom-secondary {
+  background-color: #9b9b9b;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem #a5a5a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
 #logout-btn {
   background-color: #3f2d91;
   color: #fff;
@@ -27,28 +39,6 @@
   width: 100%;
 }
 
-.ql-container.ql-snow {
-  border: none !important;
-}
-
-.ql-container {
-  overflow: none;
-}
-
-.ql-editor {
-  height: 85%;
-}
-
-#main-nav {
-  background-color: #3f2d91 !important;
-}
-
-body {
-  background-color: #f1f2f8;
-}
-
-@media screen and (max-width: 600px) {
- .ql-editor {
-  height: 65%;
-}
+.map-container {
+height: 100vh;
 }

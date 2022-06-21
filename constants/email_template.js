@@ -280,7 +280,7 @@ export function outputEmailTemplate(code){
                                   <td
                                     class="h1 pb25"
                                     style="
-                                      color: #3f2d91;
+                                      color: #b6070c;
                                       font-family: 'Muli', Arial, sans-serif;
                                       font-size: 40px;
                                       line-height: 46px;
@@ -289,7 +289,7 @@ export function outputEmailTemplate(code){
                                     "
                                   >
                                     <div mc:edit="text_2">
-                                      Welcome to Articly!
+                                      Welcome to OneTap!
                                     </div>
                                   </td>
                                 </tr>
@@ -297,7 +297,7 @@ export function outputEmailTemplate(code){
                                   <td
                                     class="text-center pb25"
                                     style="
-                                      color: #3f2d91;
+                                      color: #b6070c;
                                       font-family: 'Muli', Arial, sans-serif;
                                       font-size: 16px;
                                       line-height: 30px;
@@ -314,7 +314,7 @@ export function outputEmailTemplate(code){
                                   <td
                                     class="text-center pb25"
                                     style="
-                                      color: #3f2d91;
+                                      color: #b6070c;
                                       font-family: 'Muli', Arial, sans-serif;
                                       font-size: 16px;
                                       line-height: 30px;
@@ -324,7 +324,7 @@ export function outputEmailTemplate(code){
                                   >
                                     <div mc:edit="text_3">
                                       Click the button below to confirm your
-                                      email and start making article with Articly.
+                                      email and start using OneTap App.
                                     </div>
                                   </td>
                                 </tr>
@@ -342,7 +342,7 @@ export function outputEmailTemplate(code){
                                         <td
                                           class="pink-button text-button"
                                           style="
-                                            background: #3f2d91;
+                                            background: #b6070c;
                                             color: #c1cddc;
                                             font-family: 'Muli', Arial,
                                               sans-serif;
@@ -413,7 +413,7 @@ export function outputEmailTemplate(code){
                       "
                     >
                       <div mc:edit="text_4">
-                        This message was sent by <b>AG Nieve</b>
+                        This message was sent by <b>OneTap</b>
                       </div>
                     </td>
                   </tr>
@@ -449,7 +449,7 @@ export function outputEmailTemplate(code){
                       "
                     >
                       <div mc:edit="text_4">
-                        © 2022 Articly. All rights reserved
+                        © 2022 OneTap. All rights reserved
                       </div>
                     </td>
                   </tr>

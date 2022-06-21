@@ -3,15 +3,15 @@ import LoginForm from "../../components/auth/LoginForm";
 import { getSession } from "next-auth/client";
 import Head from "next/head";
 
-function Auth() {
+function Auth(props) {
   
   return (
     <Fragment>
       <Head>
-        <title>Articly</title>
-        <meta name="description" content="Write Articles and Share it with everyone" />
+        <title>OneTap</title>
+        <meta name="description" content={"Let's Save People"} />
       </Head>
-      <LoginForm />
+      <LoginForm isMobile={ props.isMobile } />
     </Fragment>
   );;
 }
@@ -19,17 +19,23 @@ function Auth() {
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
 
-  if (session) {
-    return {
-      redirect: {
-        destination: "/auth/profile",
-        permanent: false,
-      },
-    };
-  }
+      if (session) {
+        return {
+          redirect: {
+            destination: "/auth/profile",
+            permanent: false,
+          },
+        };
+      }
+
+      let isMobileView = (
+        context.req ? context.req.headers["user-agent"] : navigator.userAgent
+      ).match(
+        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+      );
 
   return {
-    props: { session },
+    props: { session, isMobile: isMobileView },
   };
 }
 

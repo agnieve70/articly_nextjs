@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 import Head from "next/head";
 import Script from "next/script";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 import "../styles/globals.css";
 import Layout from "../components/layout/layout";

@@ -1,4 +1,3 @@
-import React from 'react'
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -7,10 +6,13 @@ function Toast(obj) {
     const MySwal = withReactContent(
       Swal.mixin({
         toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: obj.timer ? obj.timer : 8000,
+        position: "center",
+        showConfirmButton: obj.showConfirmButton ? true : false,
+        showCancelButton: obj.showConfirmButton ? true : false,
+        confirmButtonText: obj.showConfirmButton,
+        timer: obj.timer ? obj.timer : false,
         timerProgressBar: true,
+        preConfirm: obj.confirmHandler,
       })
     );
 

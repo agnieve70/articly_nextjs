@@ -1,23 +1,20 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
 import { getSession } from "next-auth/client";
+
 import ProfileComp from "../../components/auth/ProfileComp";
-import FacebookGraph from "../../components/auth/FacebookGraph";
-import CovidChart from "../../components/auth/CovidChart";
-import { getCovidDataApi, getFaceBookApi, getMyArticleApi } from "../../helpers/api-utils";
+import ClientComp from "../../components/auth/ClientComp";
+import { getAllConcerns } from "../../helpers/api-utils";
 
 function Profile(props) {
+
   return (
     <Fragment>
       <Head>
-        <title>Articly</title>
-        <meta name="description" content={"Write your own article and share it with everyone"} />
+        <title>OneTap</title>
+        <meta name="description" content={"Let's Save People"} />
       </Head>
-      <div className="my-5">
-        <CovidChart covid={props.covid} last_update={props.covid_last_update} />
-        <FacebookGraph items={props.posts} />
-        <ProfileComp article={props.article} />
-      </div>
+      <div>{props.session.user.role === "admin" ? <ProfileComp concerns={props.concerns} /> : <ClientComp />}</div>
     </Fragment>
   );
 }
@@ -25,7 +22,7 @@ function Profile(props) {
 export async function getServerSideProps(context) {
 
   const session = await getSession({ req: context.req });
-
+  console.log(session);
   if (!session) {
     return {
       redirect: {
@@ -35,19 +32,12 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const facebook_data = await getFaceBookApi()
-
-  const covid_data = await getCovidDataApi();
-
-  const my_article = await getMyArticleApi(session.user.email);
+  const concerns = await getAllConcerns();
 
   return {
     props: {
       session,
-      posts: facebook_data.data ? facebook_data.data : [],
-      covid: covid_data.data,
-      covid_last_update: covid_data.last_update,
-      article: my_article.data,
+      concerns: concerns.data,
     },
   };
 }

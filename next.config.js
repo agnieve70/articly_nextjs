@@ -10,10 +10,10 @@ module.exports = (phase, { defaultConfig }) => {
         mongodb_username: "agnieve0513",
         mongodb_password: "JaOUg9KbzOqjmd1l",
         mongodb_clustername: "cluster0",
-        mongodb_database: "posty-dev",
+        mongodb_database: "one-tap-dev",
         nodemailer_username: "agnieve70@gmail.com",
-        nodemailer_password: "gpvbmheneyemovkc",
-        base_url: "http://localhost:3000"
+        nodemailer_password: "rfquspyxsvpufxvf",
+        base_url: "http://localhost:3000",
       },
     };
   }
@@ -23,11 +23,11 @@ module.exports = (phase, { defaultConfig }) => {
       mongodb_username: "agnieve0513",
       mongodb_password: "JaOUg9KbzOqjmd1l",
       mongodb_clustername: "cluster0",
-      mongodb_database: "posty-prod",
+      mongodb_database: "one-tap-prod",
       NEXTAUTH_URL: "https://articly.agsys.online",
       nodemailer_username: "agnieve70@gmail.com",
-      nodemailer_password: "gpvbmheneyemovkc",
-      base_url: "https://articly.agsys.online",
+      nodemailer_password: "rfquspyxsvpufxvf",
+      base_url: "https://one-tap.agsys.online",
     },
   };
 };

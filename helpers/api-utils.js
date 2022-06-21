@@ -1,44 +1,40 @@
+export async function getAllConcerns() {
+  const response = await fetch(`${process.env.base_url}/api/concern`);
 
-export async function getFaceBookApi(){
-    const facebook_response = await fetch(
-    "https://graph.facebook.com/v14.0/me/posts?access_token=EAAHZBmlOrjcUBALiT3QVP8xRRB5OfquQy6sZAyQIXy9XzSTVZCj3ZC9BhINlNfccOOk0Ie3J3h2CzSRuObXIauwnFyjQnIfCB0ZCkKIuWW9xamYOrfYlbn2Xdb0uT71GkZAh0Ik5m6GdxCgQSvcJMRU1IZCyMJn7sNckVPneBokuqIePCv6iy0mV8RngOk3xp6iuiQf3NWIFXfFn8XHOZBBkZAPpxAZBYrsoMZD"
-  );
-
-  const facebook_data = await facebook_response.json();
-  return facebook_data;
+  const data = await response.json();
+  return data;
 }
 
-export async function getCovidDataApi(){
-    const covid_response = await fetch(
-      "https://covid19-api-philippines.herokuapp.com/api/top-regions"
-    );
+export async function getUser(id) {
+  const response = await fetch(`${process.env.base_url}/api/auth/user`);
 
-    const covid_data = await covid_response.json();
-    return covid_data;
+  const data = await response.json();
+  return data;
 }
 
-export async function getAllArticles(){
-  const response = await fetch(
-    `${process.env.base_url}/api/articles`
-  );
+export async function getAdmins(id) {
+  const response = await fetch(`${process.env.base_url}/api/auth/admin`);
 
-  const articles = await response.json();
-  return articles;
+  const data = await response.json();
+  return data;
 }
 
-export async function getMyArticleApi(email){
-    const response = await fetch(`${process.env.base_url}/api/articles/my_article?email=${email}`);
+export async function deleteUser(id) {
+  const response = await fetch(`/api/auth/delete?id=${id}`, {
+    method: "DELETE",
+  });
 
-    const my_article = await response.json();
-    return my_article;
+  const user = response.json();
+  return user;
 }
 
-export async function publishArticle(titleValue, htmlValueFromQuill) {
-  const response = await fetch("/api/articles/publish", {
-    method: "POST",
+export async function updateUser(id, name, email) {
+  const response = await fetch("/api/auth/update", {
+    method: "PATCH",
     body: JSON.stringify({
-      title: titleValue,
-      content: htmlValueFromQuill,
+      id: id,
+      name: name,
+      email: email,
     }),
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
@@ -47,13 +43,4 @@ export async function publishArticle(titleValue, htmlValueFromQuill) {
 
   const article = response.json();
   return article;
-}
-
-export async function deleteArticle(id){
-   const response = await fetch(`/api/articles/delete?id=${id}`, {
-     method: "DELETE",
-   });
-
-   const article = response.json();
-   return article;
 }

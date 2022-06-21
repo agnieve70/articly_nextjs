@@ -5,7 +5,7 @@ import { outputEmailTemplate } from "../../../constants/email_template";
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const { email, password, name } = req.body;
+    const { email, password, name, role } = req.body;
 
     if (
       !email ||
@@ -49,6 +49,7 @@ async function handler(req, res) {
       email: email,
       password: hashedPassword,
       confirmation_code: code,
+      role: role
     });
 
     const sendEmailResult = await sendEmail(

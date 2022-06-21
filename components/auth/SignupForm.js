@@ -4,10 +4,10 @@ import Toast from "../UI/toast";
 import Input from "../UI/input";
 import FormContainer from "./FormContainer";
 
-async function createUser(name, email, password) {
+async function createUser(name, email, password, isMobile) {
   const response = await fetch("/api/auth/signup", {
     method: "post",
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ name, email, password, role: isMobile ? 'client' : 'admin' }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -22,7 +22,8 @@ async function createUser(name, email, password) {
   return data;
 }
 
-function SignupForm() {
+function SignupForm(props) {
+  const { isMobile } = props;
   const [isLoading, setIsLoading] = useState(false);
 
   const nameInputRef = useRef();
@@ -42,13 +43,15 @@ function SignupForm() {
       const result = await createUser(
         enteredName,
         enteredEmail,
-        enteredPassword
+        enteredPassword,
+        isMobile
       );
 
       Toast({
         icon: "success",
         title: "User Successfully Created!",
         content: "An email was sent to confirm your account.",
+        timer: 5000
       });
 
       if (result) {
@@ -58,6 +61,7 @@ function SignupForm() {
           icon: "success",
           title: "User Successfully Created!",
           content: "An email was sent to confirm your account.",
+          timer: 5000,
         });
       }
     } catch (error) {
@@ -67,6 +71,7 @@ function SignupForm() {
         icon: "error",
         title: "Something went wrong!",
         content: error.message,
+        timer: 5000,
       });
     }
   }
@@ -84,22 +89,22 @@ function SignupForm() {
       <form onSubmit={submitHandler}>
         <Input
           label={"Name"}
-          labelId={"name"}
-          inputRef={nameInputRef}
+          labelid={"name"}
+          inputref={nameInputRef}
           type="text"
         />
 
         <Input
           label={"Email Address"}
-          labelId={"emailAddress"}
-          inputRef={emailInputRef}
+          labelid={"emailAddress"}
+          inputref={emailInputRef}
           type="email"
         />
 
         <Input
           label={"Password"}
-          labelId={"passwordInput"}
-          inputRef={passwordInputRef}
+          labelid={"passwordInput"}
+          inputref={passwordInputRef}
           type="password"
         />
 

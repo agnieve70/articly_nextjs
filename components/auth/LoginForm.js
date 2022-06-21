@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import FormContainer from './FormContainer';
 import Toast from '../UI/toast';
 
-function LoginForm() {
+function LoginForm(props) {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -51,15 +51,15 @@ function LoginForm() {
       <form onSubmit={formSubmitHandler}>
         <Input
           label={"Email Address"}
-          labelId={"emailAddress"}
-          inputRef={emailInputRef}
+          labelid={"emailAddress"}
+          inputref={emailInputRef}
           type="email"
         />
 
         <Input
           label={"Password"}
-          labelId={"passwordInput"}
-          inputRef={passwordInputRef}
+          labelid={"passwordInput"}
+          inputref={passwordInputRef}
           type="password"
         />
 
@@ -69,9 +69,9 @@ function LoginForm() {
               LOGIN
             </button>{" "}
           </div>
-          <span className="text-center">
+          {props.isMobile ? <span className="text-center">
             Want to be a Member? <Link href="/auth/signup">Create Account</Link>
-          </span>
+          </span> : null}
         </div>
       </form>
     </FormContainer>
